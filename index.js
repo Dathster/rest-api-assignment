@@ -8,6 +8,7 @@ app.use(express.json());
 
 const { randomUUID } = require('crypto');
 
+//Placeholder element in array for testing purposes
 const users = [{
     "id" : 12,
     "name" : "HIIIIIII",
@@ -21,7 +22,7 @@ app.listen(3000, () => {
 //Create a user
 app.post("/users", (req, res) => {
     if(req.body.name && req.body.email){
-        const newUser = {"id": randomUUID(), "name": req.body.name, "email": req.body.email};
+        const newUser = {"id": randomUUID(), name : req.body.name, email : req.body.email};
         users.push(newUser);
         res.status(201).json(newUser);
     }else{
